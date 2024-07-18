@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles1.css') }}">
+</head>
+<body>
+
+    <h1>Upload Form</h1>
+    <form class="container" method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.dropdown.label(class="dropdown-label") }} {{ form.dropdown(class="dropdown-select") }}
+        </div>
+        <div class="form-group">
+            {{ form.files.label }}
+            <div id="fileInputs">
+                {% for file in form.files %}
+                    {{ file }}
+                {% endfor %}
+            </div>
+            <input type="button" value="Add More Files" onclick="addFileInput()">
+        </div>
+        <div class="form-group">
+            {{ form.tags.label }} {{ form.tags(size=32) }}
+        </div>
+        <div class="form-group">
+            {{ form.instructions.label }}
+            <div id="instructionInputs">
+                {% for instruction_form in form.instructions %}
+                    {{ instruction_form.instruction(size=32) }}
+                {% endfor %}
+            </div>
+            <input type="button" value="Add More Instructions" onclick="addInstructionInput()">
+        </div>
+        <div class="form-group">
+            {{ form.submit }}
+        </div>
+    </form>
+
+    <script>
+        function addFileInput() {
+            var fileInputs = document.getElementById('fileInputs');
+            var newInput = document.createElement('input');
+            newInput.type = 'file';
+            newInput.name = 'files[]';
+            fileInputs.appendChild(newInput);
+        }
+
+        function addInstructionInput() {
+            var instructionInputs = document.getElementById('instructionInputs');
+            var newInput = document.createElement('input');
+            newInput.type = 'text';
+            newInput.name = 'instructions[]';
+            newInput.placeholder = 'Give the AI your instructions';
+            instructionInputs.appendChild(newInput);
+        }
+    </script>
+</body>
+</html>

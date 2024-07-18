@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+        <div id="mySidebar" class="sidebar">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <h1>History</h1>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Clients</a>
+          <a href="#">Contact</a>
+        </div>
+    
+        <div id="main">
+          <button class="openbtn" onclick="openNav()">&#9776;</button>
+          <h2>AI tool for teachers</h2>
+          <p>Created by <q>Mohammed Elwardi</q></p>
+        </div>
+        <div class="button-container">
+            <button class="circular-button" data-direction="students">upload students</button>
+            <button class="circular-button" data-direction="files">Upload files</button>
+            <button class="circular-button" data-direction="evaluation">Evaluation</button>
+            <button class="circular-button" data-direction="diagnosis">Diagnosis</button>
+            <button class="circular-button" data-direction="planning">planning</button>
+            <button class="circular-button" data-direction="correction">Correction</button>
+            <button class="circular-button" data-direction="pedagogical">Pedagogical files</button>
+            <button class="circular-button" data-direction="cahier">Cahier</button>
+            <button class="circular-button" data-direction="exercices">exercices</button>
+            <button class="circular-button" data-direction="cours">Cours</button>
+        </div>
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 MyApp. All rights reserved.</p>
+                <ul class="footer-menu">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </footer>  
+</body>
+<script>
+    /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
+</script>
+</html>
